@@ -4,7 +4,7 @@ public class ReverseString {
 
 	public static void main(String[] args) {
 
-		String str = "I love Swty and Java";
+		String str = "I love Food and Java";
 
 		System.out.println(reverseStringUsingStringBuilder(str));
 		System.out.println(reverseStringManuallyUsingStringBuilder(str));
