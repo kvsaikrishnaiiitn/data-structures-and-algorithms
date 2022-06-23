@@ -9,8 +9,8 @@ public class FindSecondHighestUsingStream {
 
 		int[] numbers = { 7, 5, 6, 1, 4, 2 };
 
-		OptionalInt highest = Arrays.stream(numbers).distinct().sorted().skip(numbers.length - 1).findFirst();
-		OptionalInt secondHighest = Arrays.stream(numbers).distinct().sorted().skip(numbers.length - 2).findFirst();
+		OptionalInt highest = Arrays.stream(numbers).sorted().skip(numbers.length - 1).findFirst();
+		OptionalInt secondHighest = Arrays.stream(numbers).sorted().skip(numbers.length - 2).findFirst();
 
 		System.out.println(highest.getAsInt());
 		System.out.println(secondHighest.getAsInt());
