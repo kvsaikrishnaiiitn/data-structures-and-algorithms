@@ -1,5 +1,6 @@
 package com.cms.ds;
 
+
 public interface Stack<X> {
 
 	// insert,delete,size,search

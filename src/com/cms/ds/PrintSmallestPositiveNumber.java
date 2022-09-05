@@ -3,8 +3,14 @@ package com.cms.ds;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution {
-	public int solution(int[] A) {
+public class PrintSmallestPositiveNumber {
+
+	public static void main(String[] args) {
+		int[] array = { -1, 0, 2 };
+		System.out.println(solution(array));
+	}
+
+	public static int solution(int[] A) {
 		// write your code in Java SE 8
 
 		int N = A.length;
@@ -19,6 +25,6 @@ public class Solution {
 				return i;
 			}
 		}
-		return 1;
+		return N;
 	}
 }
