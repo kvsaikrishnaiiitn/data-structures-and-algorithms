@@ -9,6 +9,7 @@ public class ReverseString {
 		System.out.println(reverseStringUsingStringBuilder(str));
 		System.out.println(reverseStringManuallyUsingStringBuilder(str));
 		System.out.println(reverseStringManuallyWithoutUsingStringBuilder(str));
+		System.out.println(reverseStringUsingRecursion(str));
 
 	}
 
@@ -32,6 +33,15 @@ public class ReverseString {
 			reverseString += str.charAt(index);
 		}
 		return reverseString;
+	}
+
+	public static String reverseStringUsingRecursion(String str) {
+		if (str.length() == 1) {
+			return str;
+		} else {
+			return str.charAt(str.length() - 1) + reverseStringUsingRecursion(str.substring(0, str.length() - 1));
+		}
+
 	}
 
 }
