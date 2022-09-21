@@ -27,9 +27,10 @@ public class FindingDuplicateElementsInAnArrayUsingFrequency {
 
 		int[] frequencyArray = new int[maxNumber + 1];
 
-		for (int index = 0; index < frequencyArray.length; index++) {
-			frequencyArray[index] = 0;
-		}
+		/*
+		 * for (int index = 0; index < frequencyArray.length; index++) {
+		 * frequencyArray[index] = 0; }
+		 */
 
 		/*
 		 * System.out.println(
