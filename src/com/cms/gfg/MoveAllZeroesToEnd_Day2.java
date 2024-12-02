@@ -8,6 +8,11 @@ public class MoveAllZeroesToEnd_Day2 {
 		int arr[] = { 1, 2, 0, 4, 3, 0, 5, 0 };
 		System.out.println("MoveAllZeroesToEnd_Day2.main()...input array:" + Arrays.toString(arr));
 
+		moveAllZeroesToEnd(arr);
+		System.out.println("MoveAllZeroesToEnd_Day2.main()...final array:" + Arrays.toString(arr));
+	}
+
+	private static void moveAllZeroesToEnd(int[] arr) {
 		int count = 0;
 		int n = arr.length;
 		for (int index = 0; index < n; index++) {
@@ -18,8 +23,6 @@ public class MoveAllZeroesToEnd_Day2 {
 				count++;
 			}
 		}
-
-		System.out.println("MoveAllZeroesToEnd_Day2.main()...final array:" + Arrays.toString(arr));
 	}
 
 }
