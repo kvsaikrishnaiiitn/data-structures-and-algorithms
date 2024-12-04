@@ -21,10 +21,10 @@ public class RotateAnArray_Day4 {
 	}
 
 	private static void rorateArray(int[] arr, int n, int d) {
-		// Algorithm: Reversal technique
-		// 1. Reverse sub arrays i. number of elements[0,d] ii. remaining
-		// elements[d,n-1]
-		// 2. Reverse total array
+		/***
+		 * Algorithm: Reversal technique 1. Reverse sub arrays i. number of
+		 * elements[0,d] ii. remaining elements[d,n-1] 2. Reverse total array
+		 */
 		reverseArray(arr, 0, d);
 		reverseArray(arr, d, n);
 		reverseArray(arr, 0, n);
