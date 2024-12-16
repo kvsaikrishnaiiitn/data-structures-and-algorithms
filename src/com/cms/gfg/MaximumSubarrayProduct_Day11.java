@@ -39,6 +39,27 @@ public class MaximumSubarrayProduct_Day11 {
 			System.out.println();
 		}
 		System.out.println("MaximumSubarrayProduct_Day11.main()...maxProduct:" + maxProduct);
+
+		/**
+		 * Algo: iterating in both directions
+		 */
+
+		int leftToRight = 1;
+		int rightToLeft = 1;
+		int maxProductValue = Integer.MIN_VALUE;
+		for (int index = 0; index < n; index++) {
+			if (leftToRight == 0) {
+				leftToRight = 1;
+			}
+			if (rightToLeft == 0) {
+				rightToLeft = 1;
+			}
+			leftToRight *= arr[index];
+			rightToLeft *= arr[n - 1 - index];
+			maxProductValue = Math.max(Math.max(maxProductValue, leftToRight), rightToLeft);
+		}
+		System.out.println("MaximumSubarrayProduct_Day11.main()...maxProductValue:" + maxProductValue);
+
 	}
 
 }
