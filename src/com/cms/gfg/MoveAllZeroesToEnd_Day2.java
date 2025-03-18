@@ -13,15 +13,16 @@ public class MoveAllZeroesToEnd_Day2 {
 	}
 
 	private static void moveAllZeroesToEnd(int[] arr) {
-		int count = 0;
+		int pointer = 0;
 		int n = arr.length;
 		for (int index = 0; index < n; index++) {
 			if (arr[index] != 0) {
-				int temp = arr[count];
-				arr[count] = arr[index];
+				int temp = arr[pointer];
+				arr[pointer] = arr[index];
 				arr[index] = temp;
-				count++;
+				pointer++;
 			}
+			System.out.println("MoveAllZeroesToEnd_Day2.main()...array:" + Arrays.toString(arr));
 		}
 	}
 
