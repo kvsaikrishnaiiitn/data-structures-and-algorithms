@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class FirstMissingPositive_Day13 {
 	public static void main(String[] args) {
-		// int[] numbers = { 2, -3, 4, 1, 1, 7 };
-		int[] numbers = { 1, 2, 3, 4, 5, 6 };
+		int[] numbers = { 2, -3, 4, 1, 1, 7 };
+		// int[] numbers = { 1, 2, 3, 4, 5, 6 };
 
 		int smallestPositiveMissing = Integer.MIN_VALUE;
 
@@ -18,9 +18,9 @@ public class FirstMissingPositive_Day13 {
 				int temp = numbers[numbers[index] - 1];
 				numbers[numbers[index] - 1] = numbers[index];
 				numbers[index] = temp;
-				// System.out.println(Arrays.toString(numbers));
+				System.out.println(Arrays.toString(numbers));
 			}
-			// System.out.println("After index:" + index + ": " + Arrays.toString(numbers));
+			System.out.println("After index:" + index + ": " + Arrays.toString(numbers));
 		}
 		System.out.println("After all:" + Arrays.toString(numbers));
 		for (int index = 0; index < n; index++) {

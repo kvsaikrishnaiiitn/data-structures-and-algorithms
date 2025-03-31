@@ -9,6 +9,7 @@ public class CountDownLatchExample {
 			new Thread(new WorkerThread(latch), "T" + index).start();
 		}
 		latch.await();
+		System.out.println("CountDownLatch is completed");
 		System.out.println("Main is completed");
 	}
 
