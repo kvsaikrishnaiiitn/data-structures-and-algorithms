@@ -7,6 +7,8 @@ public class CyclicBarrierExample {
 
 	public static void main(String[] args) {
 
+		// CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
+
 		CyclicBarrier cyclicBarrier = new CyclicBarrier(3, () -> {
 			System.out.println("Barrier is completed and running the required task...");
 		});

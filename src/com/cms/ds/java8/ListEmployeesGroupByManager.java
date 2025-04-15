@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-class Employee {
+class EmployeeWithOnlyNameAndManager {
 
-	public Employee(String name, String managerName) {
+	public EmployeeWithOnlyNameAndManager(String name, String managerName) {
 		super();
 		this.name = name;
 		this.managerName = managerName;
@@ -43,17 +43,17 @@ public class ListEmployeesGroupByManager {
 
 	public static void main(String[] args) {
 
-		List<Employee> employees = Arrays.asList(new Employee("Vijay", "Bob"), new Employee("Bob", "John"),
-				new Employee("Krishna", "Bob"), new Employee("Laxman", "John"));
+		List<EmployeeWithOnlyNameAndManager> employees = Arrays.asList(new EmployeeWithOnlyNameAndManager("Vijay", "Bob"), new EmployeeWithOnlyNameAndManager("Bob", "John"),
+				new EmployeeWithOnlyNameAndManager("Krishna", "Bob"), new EmployeeWithOnlyNameAndManager("Laxman", "John"));
 
 		// 1.a Bob->[Vijay, Krishna], John->[Bob, Laxman]
-		Map<String, List<Employee>> employeesGroupedByManager = employees.stream()
-				.collect(Collectors.groupingBy(Employee::getManagerName, Collectors.toList()));
+		Map<String, List<EmployeeWithOnlyNameAndManager>> employeesGroupedByManager = employees.stream()
+				.collect(Collectors.groupingBy(EmployeeWithOnlyNameAndManager::getManagerName, Collectors.toList()));
 
 		Map<String, List<String>> employeeNamesGroupedByManager = new HashMap<>();
-		for (Map.Entry<String, List<Employee>> eachEntry : employeesGroupedByManager.entrySet()) {
+		for (Map.Entry<String, List<EmployeeWithOnlyNameAndManager>> eachEntry : employeesGroupedByManager.entrySet()) {
 			List<String> employeeNames = new ArrayList<>();
-			for (Employee eachEmployee : eachEntry.getValue()) {
+			for (EmployeeWithOnlyNameAndManager eachEmployee : eachEntry.getValue()) {
 				employeeNames.add(eachEmployee.getName());
 			}
 			employeeNamesGroupedByManager.put(eachEntry.getKey(), employeeNames);
@@ -64,11 +64,11 @@ public class ListEmployeesGroupByManager {
 
 		// 1.b Bob -> 2, John -> 4
 		Map<String, Long> employeeCountGroupedByManager = employees.stream()
-				.collect(Collectors.groupingBy(Employee::getManagerName, Collectors.counting()));
+				.collect(Collectors.groupingBy(EmployeeWithOnlyNameAndManager::getManagerName, Collectors.counting()));
 
-		for (Map.Entry<String, List<Employee>> eachManagerEntry : employeesGroupedByManager.entrySet()) {
+		for (Map.Entry<String, List<EmployeeWithOnlyNameAndManager>> eachManagerEntry : employeesGroupedByManager.entrySet()) {
 			String managerName = eachManagerEntry.getKey();
-			List<Employee> reportees = eachManagerEntry.getValue();
+			List<EmployeeWithOnlyNameAndManager> reportees = eachManagerEntry.getValue();
 			employeeCountGroupedByManager = countAllReportees(managerName, reportees, employees,
 					employeeCountGroupedByManager);
 		}
@@ -78,9 +78,9 @@ public class ListEmployeesGroupByManager {
 
 	}
 
-	static Map<String, Long> countAllReportees(String maangerName, List<Employee> reportees, List<Employee> employees,
+	static Map<String, Long> countAllReportees(String maangerName, List<EmployeeWithOnlyNameAndManager> reportees, List<EmployeeWithOnlyNameAndManager> employees,
 			Map<String, Long> employeeCountGroupedByManager) {
-		for (Employee eachReportee : reportees) {
+		for (EmployeeWithOnlyNameAndManager eachReportee : reportees) {
 			long indirectReportees = findIndirectReportees(eachReportee.getName(), employees);
 			if (indirectReportees > 0) {
 				// System.out.println(eachEmployee.getName() + "->" + indirectEmployees);
@@ -91,9 +91,9 @@ public class ListEmployeesGroupByManager {
 		return employeeCountGroupedByManager;
 	}
 
-	private static long findIndirectReportees(String eachReporteeName, List<Employee> employees) {
+	private static long findIndirectReportees(String eachReporteeName, List<EmployeeWithOnlyNameAndManager> employees) {
 		long count = 0;
-		for (Employee eachEmployee : employees) {
+		for (EmployeeWithOnlyNameAndManager eachEmployee : employees) {
 			if (eachReporteeName.equalsIgnoreCase((eachEmployee).getManagerName())) {
 				count++;
 			}
