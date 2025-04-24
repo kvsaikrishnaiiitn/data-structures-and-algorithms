@@ -17,7 +17,8 @@ public class FindArmstrongNumber {
 		System.out.println("actual:" + actual);
 		while (number > 0) {
 			int lastDigit = number % 10;
-			armStrong = armStrong + (lastDigit * lastDigit * lastDigit);
+			// armStrong = armStrong + (lastDigit * lastDigit * lastDigit);
+			armStrong = armStrong + (int) Math.pow(lastDigit, 3);
 			number = number / 10;
 		}
 		System.out.println("armStrong:" + armStrong);

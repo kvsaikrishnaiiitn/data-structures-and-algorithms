@@ -7,12 +7,17 @@ public class Java8InterfacesCheck {
 
 		Implementation1 implementation1 = new Implementation1();
 		implementation1.defaultMethod1();
+		implementation1.staticMethod1();
 		implementation1.method1();
 
 	}
 }
 
 class Implementation1 implements I1, I2 {
+	static void staticMethod1() {
+		System.out.println("Implementation1.staticMethod1()");
+	}
+
 	void method1() {
 		System.out.println("Implementation1.method1()");
 	}
